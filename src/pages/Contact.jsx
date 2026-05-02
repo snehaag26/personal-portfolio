@@ -7,9 +7,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-32 pb-20 flex flex-col relative overflow-hidden">
       <div
-        className="absolute inset-0 z-0 opacity-50 animate-gradient"
+        className="absolute inset-0 z-0 opacity-30 animate-gradient"
         style={{
-          backgroundImage: 'linear-gradient(120deg, var(--section-bg) 0%, var(--soft-pink) 50%, var(--main-bg) 100%)',
+          backgroundImage: 'linear-gradient(120deg, var(--section-bg) 0%, var(--soft-pink) 20%, var(--main-bg) 100%)',
           backgroundSize: '200% 200%'
         }}
       ></div>
@@ -81,7 +81,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <footer className="relative z-10 py-10 mt-12 text-center border-t border-[var(--primary)]/10 bg-white/10 backdrop-blur-sm">
+      <footer className="relative z-10 py-10 mt-12 text-center border-t border-[var(--primary)]/10 bg-[var(--section-bg)]/30 backdrop-blur-sm">
         <p className="text-sm font-sans tracking-widest text-[var(--primary)]/60 uppercase">
           © {new Date().getFullYear()} Sneha Agrawal. Crafted with care.
         </p>

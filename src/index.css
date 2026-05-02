@@ -23,14 +23,15 @@
 }
 
 [data-theme='dark'] {
-  --primary: #e6d7d8;
-  --soft-pink: #ad8783;
-  --highlight: #de9596;
-  --section-bg: #1c1c1c;
-  --main-bg: #0f0f0f;
-  --glass-bg: rgba(30, 30, 30, 0.4);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --nav-bg: rgba(15, 15, 15, 0.7);
+  --primary: #f8f3f2; /* Premium Ivory */
+  --soft-pink: #d4a5a0; /* Dustier, more elegant rose */
+  --highlight: #eab8b8; /* Soft highlight */
+  --section-bg: #121214; /* Deep charcoal surface */
+  --main-bg: #070708; /* Near-black depth */
+  --glass-bg: rgba(18, 18, 20, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --nav-bg: rgba(7, 7, 8, 0.85);
+  --card-glow: rgba(212, 165, 160, 0.05);
 }
 
 html {
@@ -45,6 +46,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   cursor: none; /* Hide default cursor to use custom cursor */
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Ensure links and buttons hide cursor too for the custom cursor effect */
@@ -82,8 +84,13 @@ h1, h2, h3, h4, h5, h6 {
   top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.15;
+  opacity: 0.1;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  transition: opacity 0.8s ease;
+}
+
+[data-theme='dark'] .grain-overlay {
+  opacity: 0.05;
 }
 
 /* Marquee */
@@ -193,6 +200,16 @@ h1, h2, h3, h4, h5, h6 {
 .text-stroke:hover {
   color: var(--primary);
   -webkit-text-stroke: 1.5px transparent;
+}
+
+[data-theme='dark'] .text-stroke {
+  -webkit-text-stroke: 1.5px rgba(248, 243, 242, 0.2);
+}
+
+[data-theme='dark'] .text-stroke:hover {
+  -webkit-text-stroke: 1.5px transparent;
+  color: var(--primary);
+  text-shadow: 0 0 30px rgba(212, 165, 160, 0.2);
 }
 
 .text-stroke-highlight {

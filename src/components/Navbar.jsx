@@ -70,10 +70,12 @@ export default function Navbar() {
             {/* Theme Toggle Desktop */}
             <button
               onClick={toggleTheme}
-              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-colors cursor-none p-1"
+              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-all duration-500 cursor-none p-1 hover:rotate-12 active:scale-90"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              <div className="transition-all duration-500 transform">
+                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              </div>
             </button>
           </div>
 
@@ -82,7 +84,7 @@ export default function Navbar() {
             {/* Theme Toggle Mobile */}
             <button
               onClick={toggleTheme}
-              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-colors cursor-none p-1"
+              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-all duration-500 cursor-none p-1 active:rotate-180"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
