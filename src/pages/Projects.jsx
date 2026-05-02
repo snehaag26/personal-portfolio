@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const projects = [
-  { id: 1, title: 'Social Media Manager', category: 'Creative Direction', link: 'https://social-media-three-teal.vercel.app/work' },
-  { id: 2, title: 'Wedding Hospitality', category: 'Web Development', link: 'https://wed-rosy.vercel.app/' },
+  { id: 1, title: 'Social Media Manager', category: 'Creative Direction', link: 'https://social-media-three-teal.vercel.app', image: '/images/Social-Media.png' },
+  { id: 2, title: 'Wedding Hospitality', category: 'Web Development', link: 'https://wed-rosy.vercel.app/', image: '/images/Wedding.png' },
 ];
 
 export default function Projects() {
@@ -58,17 +58,27 @@ export default function Projects() {
 
       {hoveredProject !== null && (
         <div
-          className="fixed pointer-events-none z-50 w-64 h-80 rounded-2xl overflow-hidden glass shadow-[0_20px_50px_rgba(173,135,131,0.3)] transition-transform duration-75"
+          className="fixed pointer-events-none z-50 w-72 h-[450px] rounded-3xl overflow-hidden glass shadow-[0_30px_60px_rgba(173,135,131,0.4)] transition-all duration-300 ease-out"
           style={{
             left: mousePos.x,
             top: mousePos.y,
-            transform: 'translate(-50%, -50%) scale(1)'
+            transform: `translate(-50%, -50%) scale(${hoveredProject !== null ? 1 : 0.8})`,
+            opacity: hoveredProject !== null ? 1 : 0
           }}
         >
-          <div className="absolute inset-0 bg-[var(--soft-pink)] flex items-center justify-center">
-            <span className="text-white font-serif italic text-2xl drop-shadow-md">
-              {projects[hoveredProject].title.split(' ')[0]}
-            </span>
+          <img 
+            src={projects[hoveredProject].image} 
+            alt={projects[hoveredProject].title}
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <div className="absolute bottom-6 left-6 right-6">
+            <p className="text-white/70 text-xs font-sans tracking-widest uppercase mb-1">
+              {projects[hoveredProject].category}
+            </p>
+            <h4 className="text-white text-xl font-serif">
+              {projects[hoveredProject].title}
+            </h4>
           </div>
         </div>
       )}

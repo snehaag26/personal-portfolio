@@ -18,7 +18,7 @@ export default function About() {
           <div className="w-full lg:w-1/2 flex justify-center relative reveal" style={{ transitionDelay: '200ms' }}>
             <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl pulse-glow bg-[var(--section-bg)] overflow-hidden glass z-10 flex items-center justify-center">
               <span className="text-[var(--primary)] opacity-50 font-sans tracking-widest text-sm uppercase">
-                [ Image Placeholder ]
+                [ Image Placeholder ] 
               </span>
             </div>
 

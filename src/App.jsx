@@ -7,6 +7,7 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
+import Education from './pages/Education';
 import Contact from './pages/Contact';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <section id="skills" className="sticky-section"><Skills /></section>
         <section id="projects" className="sticky-section"><Projects /></section>
         <section id="experience" className="sticky-section"><Experience /></section>
+        <section id="education" className="sticky-section"><Education /></section>
         <section id="contact" className="sticky-section"><Contact /></section>
       </main>
     </div>
