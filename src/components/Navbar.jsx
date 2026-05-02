@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
   { name: 'Home', path: '#home' },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState('#home');
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +54,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -64,15 +66,36 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+            
+            {/* Theme Toggle Desktop */}
+            <button
+              onClick={toggleTheme}
+              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-colors cursor-none p-1"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-[var(--primary)] hover:text-[var(--highlight)] transition-colors cursor-none z-[102]"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile Right Section */}
+          <div className="flex md:hidden items-center gap-4">
+            {/* Theme Toggle Mobile */}
+            <button
+              onClick={toggleTheme}
+              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-colors cursor-none p-1"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
+            </button>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className="text-[var(--primary)] hover:text-[var(--highlight)] transition-colors cursor-none z-[102]"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </nav>
 
